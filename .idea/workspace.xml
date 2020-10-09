@@ -7,6 +7,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="EditorConfigPreviewManager">
+    <editorConfig file="$PROJECT_DIR$/.editorconfig" previewFile="$PROJECT_DIR$/components/Home/HomeContent.vue" />
+  </component>
   <component name="ProjectId" id="1ibELjfNdo4L7mD4sS75Qvo2229" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602167837574</updated>
       <workItem from="1602167838698" duration="5916000" />
-      <workItem from="1602215244694" duration="22440000" />
+      <workItem from="1602215244694" duration="24669000" />
     </task>
     <servers />
   </component>
@@ -73,5 +76,9 @@
       <screen x="56" y="143" width="1310" height="741" />
     </state>
     <state width="1288" height="28" key="GridCell.Tab.0.right/56.143.1310.741/1366.0.1280.1024@56.143.1310.741" timestamp="1602238736368" />
+    <state x="374" y="205" width="672" height="678" key="search.everywhere.popup" timestamp="1602243860545">
+      <screen x="56" y="143" width="1310" height="741" />
+    </state>
+    <state x="374" y="205" width="672" height="678" key="search.everywhere.popup/56.143.1310.741/1366.0.1280.1024@56.143.1310.741" timestamp="1602243860545" />
   </component>
 </project>

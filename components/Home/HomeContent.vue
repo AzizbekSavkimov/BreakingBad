@@ -1,11 +1,9 @@
 <template>
   <section class="home-content container">
       <div v-if="!loading">
-        <div class="tabs">
-          <button v-for="(item, i) in tabs" :key="item + i" @click="active = item.active">{{item.title}}</button>
-        </div>
+        <tabs :tabs="tabs" @click="active = $event" />
         <div class="content">
-          <NLink v-for="(item, i) in content" class="content__item" v-if="item.season === active" :to="`/${item.episode_id}`" :key="item + i">
+          <NLink v-for="(item, i) in content" class="content__item" v-if="item.season === active" :to="`/episodes/${item.episode_id}`" :key="item + i">
             <h3 class="content__item-title">{{item.title}}</h3>
             <div class="content__item-date">Дата выхода: <b>{{item.air_date}}</b></div>
             <div class="content__item-series">Серия: <b>{{item.series}}</b></div>
@@ -19,10 +17,12 @@
   </section>
 </template>
 <script>
-import Spinner from "@/components/Spienner/Spinner";
+import Spinner from "@/components/Spinner/Spinner";
+import UiButton from "@/components/UI/UIButton";
+import Tabs from "@/components/Shared/Tabs";
 export default {
   name: 'homeContent',
-  components: {Spinner},
+  components: {Tabs, UiButton, Spinner},
   data() {
     return {
       input: '',
@@ -49,61 +49,50 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tabs {
-  text-align: center;
-  margin-top: 20px;
-}
-.content__item {
-  cursor: pointer;
-  color: black;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-  > div {
-    margin-top: 12px;
-  }
-  &-title {
+.home-content {
+  &__tabs {
     text-align: center;
-    margin-bottom: 20px;
-    height: 28px;
-    overflow: hidden;
+    margin-top: 20px;
   }
-  &-list {
+  .content {
     display: flex;
-    li {
-      list-style: none;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    &__item {
+      flex: 1 1 250px;
+      min-height: 350px;
+      margin: 10px;
+      border-radius: 10px;
+      background: white;
+      font-size: 18px;
+      padding: 20px;
+      cursor: pointer;
+      color: black;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      > div {
+        margin-top: 12px;
+      }
+      &-title {
+        text-align: center;
+        margin-bottom: 20px;
+        height: 28px;
+        overflow: hidden;
+      }
+      &-list {
+        display: flex;
+        li {
+          list-style: none;
+        }
+      }
     }
   }
-}
-button {
-  width: 150px;
-  height: 50px;
-  border: none;
-  background: white;
-  font-size: 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-.content {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-.content__item {
-  flex: 1 1 250px;
-  min-height: 350px;
-  margin: 10px;
-  border-radius: 10px;
-  background: white;
-  font-size: 18px;
-  padding: 20px;
 }
 </style>

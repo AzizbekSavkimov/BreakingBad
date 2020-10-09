@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Spinner from "@/components/Spienner/Spinner";
+import Spinner from "@/components/Spinner/Spinner";
 export default {
   components: {Spinner},
   data() {
