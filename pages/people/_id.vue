@@ -9,6 +9,7 @@
         <div><b>Дата рождения:</b> {{item.birthday}}</div>
         <div><b>Статус:</b> {{item.status}}</div>
         <div><b>Портрет:</b> {{item.portrayed}}</div>
+        <div class="person__quotes"><b>Цитаты:</b> <p v-for="(item, i) in quotes" :key="item + i">- {{item.quote}}</p></div>
       </div>
     </div>
     <div v-else>
@@ -25,12 +26,17 @@ export default {
     return {
       loading: true,
       person: [],
+      quotes: []
     }
   },
   async mounted() {
     await fetch(`https://breakingbadapi.com/api/characters/${this.$route.params.id}`)
       .then(data => data.json())
       .then(res => this.person = res);
+    await fetch(`https://breakingbadapi.com/api/quote?author=${this.person[0].name}`)
+      .then(data => data.json())
+      .then(res => this.quotes = res);
+    console.log(this.person[0].name)
     this.loading = false;
   }
 }
@@ -38,16 +44,28 @@ export default {
 
 <style scoped lang="scss">
 .person {
-  width: 400px;
-  height: 500px;
+  width: 700px;
   padding: 20px;
   margin-top: 40px;
   background: white;
+  &__quotes {
+    b {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      font-size: 30px;
+      text-align: center;
+    }
+    p {
+      margin-top: 5px;
+    }
+  }
   &__img {
     width: 100%;
-    height: 200px;
+    height: 500px;
     margin: 0 auto;
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   div {
     font-size: 18px;
