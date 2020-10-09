@@ -1,0 +1,109 @@
+<template>
+  <section class="home-content container">
+      <div v-if="!loading">
+        <div class="tabs">
+          <button v-for="(item, i) in tabs" :key="item + i" @click="active = item.active">{{item.title}}</button>
+        </div>
+        <div class="content">
+          <NLink v-for="(item, i) in content" class="content__item" v-if="item.season === active" :to="`/${item.episode_id}`" :key="item + i">
+            <h3 class="content__item-title">{{item.title}}</h3>
+            <div class="content__item-date">Дата выхода: <b>{{item.air_date}}</b></div>
+            <div class="content__item-series">Серия: <b>{{item.series}}</b></div>
+            <div class="content__item-episode">Эпизод: <b>{{item.episode}}</b></div>
+          </NLink>
+        </div>
+      </div>
+      <div v-else>
+        <spinner />
+      </div>
+  </section>
+</template>
+<script>
+import Spinner from "@/components/Spienner/Spinner";
+export default {
+  name: 'homeContent',
+  components: {Spinner},
+  data() {
+    return {
+      input: '',
+      active: '1',
+      loading: true,
+      data: [],
+      tabs: [
+        { title: 'Сезон 1', active: '1', btn: true, },
+        { title: 'Сезон 2', active: '2', btn: false, },
+        { title: 'Сезон 3', active: '3', btn: false, },
+        { title: 'Сезон 4', active: '4', btn: false, },
+        { title: 'Сезон 5', active: '5', btn: false, },
+      ],
+      content: []
+    }
+  },
+  async mounted() {
+    await fetch('https://www.breakingbadapi.com/api/episodes')
+      .then(data => data.json())
+      .then(res => (this.content = res));
+    this.loading = false;
+  },
+}
+</script>
+
+<style scoped lang="scss">
+.tabs {
+  text-align: center;
+  margin-top: 20px;
+}
+.content__item {
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  > div {
+    margin-top: 12px;
+  }
+  &-title {
+    text-align: center;
+    margin-bottom: 20px;
+    height: 28px;
+    overflow: hidden;
+  }
+  &-list {
+    display: flex;
+    li {
+      list-style: none;
+    }
+  }
+}
+button {
+  width: 150px;
+  height: 50px;
+  border: none;
+  background: white;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.content__item {
+  flex: 1 1 250px;
+  min-height: 350px;
+  margin: 10px;
+  border-radius: 10px;
+  background: white;
+  font-size: 18px;
+  padding: 20px;
+}
+</style>

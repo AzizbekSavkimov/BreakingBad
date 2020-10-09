@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f7a834f1-0613-4fe0-9e71-c3a379621281" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1ibELjfNdo4L7mD4sS75Qvo2229" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+    <property name="vuejs.nuxt.types-notification-shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7a834f1-0613-4fe0-9e71-c3a379621281" name="Default Changelist" comment="" />
+      <created>1602167837574</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602167837574</updated>
+      <workItem from="1602167838698" duration="5916000" />
+      <workItem from="1602215244694" duration="21377000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1288" height="28" key="GridCell.Tab.0.bottom" timestamp="1602238736368">
+      <screen x="56" y="143" width="1310" height="741" />
+    </state>
+    <state width="1288" height="28" key="GridCell.Tab.0.bottom/56.143.1310.741/1366.0.1280.1024@56.143.1310.741" timestamp="1602238736368" />
+    <state width="1288" height="28" key="GridCell.Tab.0.center" timestamp="1602238736368">
+      <screen x="56" y="143" width="1310" height="741" />
+    </state>
+    <state width="1288" height="28" key="GridCell.Tab.0.center/56.143.1310.741/1366.0.1280.1024@56.143.1310.741" timestamp="1602238736368" />
+    <state width="1288" height="28" key="GridCell.Tab.0.left" timestamp="1602238736368">
+      <screen x="56" y="143" width="1310" height="741" />
+    </state>
+    <state width="1288" height="28" key="GridCell.Tab.0.left/56.143.1310.741/1366.0.1280.1024@56.143.1310.741" timestamp="1602238736368" />
+    <state width="1288" height="28" key="GridCell.Tab.0.right" timestamp="1602238736368">
+      <screen x="56" y="143" width="1310" height="741" />
+    </state>
+    <state width="1288" height="28" key="GridCell.Tab.0.right/56.143.1310.741/1366.0.1280.1024@56.143.1310.741" timestamp="1602238736368" />
+  </component>
+</project>
