@@ -30,6 +30,12 @@ module.exports = {
   /*
   ** Build configuration
   */
+  modules: [
+      '@nuxtjs/axios'
+  ],
+  axios: {
+    baseURL: 'https://breakingbadapi.com/api',
+  },
   build: {
     /*
     ** Run ESLint on save

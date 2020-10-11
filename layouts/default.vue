@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <home-header />
+    <Header />
     <nuxt/>
   </div>
 </template>
 <script>
-import HomeHeader from "@/components/Home/HomeHeader";
+import Header from "@/components/Header/Header";
 export default {
-  components: {HomeHeader}
+  components: {Header}
 }
 </script>
 <style>

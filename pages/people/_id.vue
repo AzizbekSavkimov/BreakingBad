@@ -9,7 +9,10 @@
         <div><b>Дата рождения:</b> {{item.birthday}}</div>
         <div><b>Статус:</b> {{item.status}}</div>
         <div><b>Портрет:</b> {{item.portrayed}}</div>
-        <div class="person__quotes"><b>Цитаты:</b> <p v-for="(item, i) in quotes" :key="item + i">- {{item.quote}}</p></div>
+        <div class="person__quotes">
+          <b>Цитаты:</b>
+          <p v-for="(item, i) in quotes" :key="item + i">- {{item.quote}}</p>
+        </div>
       </div>
     </div>
     <div v-else>
@@ -30,13 +33,10 @@ export default {
     }
   },
   async mounted() {
-    await fetch(`https://breakingbadapi.com/api/characters/${this.$route.params.id}`)
-      .then(data => data.json())
-      .then(res => this.person = res);
-    await fetch(`https://breakingbadapi.com/api/quote?author=${this.person[0].name}`)
-      .then(data => data.json())
-      .then(res => this.quotes = res);
-    console.log(this.person[0].name)
+    await this.$axios.get(`/characters/${this.$route.params.id}`)
+      .then(res => this.person = res.data);
+    await this.$axios.get(`/quote?author=${this.person[0].name}`)
+      .then(res => this.quotes = res.data);
     this.loading = false;
   }
 }

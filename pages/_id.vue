@@ -39,19 +39,21 @@ export default {
       deaths: []
     }
   },
-  async mounted() {
-    await fetch(`https://breakingbadapi.com/api/episodes/${this.$route.params.id}`)
-      .then(data => data.json())
-      .then(res => {
-        this.episode = res[0].episode;
-        fetch(`https://breakingbadapi.com/api/characters?category=${res[0].series}`)
-          .then(data => data.json())
-          .then(res => this.people = res);
-      })
-    await fetch(`https://breakingbadapi.com/api/deaths`)
-      .then(data => data.json())
-      .then(res => this.deaths = res);
-    this.loading = false;
+  mounted() {
+    this.$axios.get(`/episodes/${this.$route.params.id}`)
+      .then(res => console.log(res))
+    // fetch(`https://breakingbadapi.com/api/episodes/${this.$route.params.id}`)
+    //   .then(data => data.json())
+    //   .then(res => {
+    //     this.episode = res[0].episode;
+    //     fetch(`https://breakingbadapi.com/api/characters?category=${res[0].series}`)
+    //       .then(data => data.json())
+    //       .then(res => this.people = res);
+    //   })
+    // fetch(`https://breakingbadapi.com/api/deaths`)
+    //   .then(data => data.json())
+    //   .then(res => this.deaths = res);
+    // this.loading = false;
   },
   computed: {
     FilterDeath() {
