@@ -5,7 +5,7 @@
           <input type="text" class="home-search__input" v-model="input" placeholder="Введите название...">
           <button type="button" class="home-search__button">Искать</button>
         </div>
-        <tabs :tabs="tabs" @click="active = $event" />
+        <tabs :tabs="tabs" @click="active = $event" :activeElem="active" />
         <div class="content">
           <NLink v-for="(item, i) in FilterContent" class="content__item" v-if="item.season === active" :to="`/episodes/${item.episode_id}`" :key="item + i">
             <h3 class="content__item-title">{{item.title}}</h3>
@@ -41,17 +41,28 @@ export default {
         { title: 'Сезон 5', active: '5', btn: false, },
       ],
       content: [],
+      chars: [],
+      deaths: []
     }
   },
-  mounted() {
-    this.$axios.get('/episodes')
+  async mounted() {
+    await this.$axios.get('/episodes')
       .then(res => this.content = res.data);
+    await this.$axios.get('/characters')
+      .then(res => this.chars = res.data);
+    await this.$axios.get('/deaths')
+      .then(res => this.deaths = res.data);
     this.loading = false;
   },
   computed: {
     FilterContent() {
       if (this.input !== '') {
-        return this.content.filter((item) => item.title.includes(this.input));
+        let episode = this.content.filter((item) => item.title.includes(this.input));
+        let people = this.chars.filter(item => item.name.includes(this.input));
+        let deaths = this.deaths.filter((item) => item.death.includes(this.input));
+        let peoplesInEpisode = this.content.filter(item => item.series.includes(people.map(item => item.category)[0]));
+        let deathsInEpisode = this.content.filter(item => item.episode.includes(deaths.map(item => item.episode)[0]));
+        return [...episode, ...peoplesInEpisode, ...deathsInEpisode];
       } else {
         return this.content;
       }

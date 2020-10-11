@@ -17,5 +17,10 @@ export default {
   cursor: pointer;
   margin-top: 20px;
   margin-left: 20px;
+  transition: .2s ease;
+  &:hover {
+    background: green;
+    opacity: .6;
+  }
 }
 </style>

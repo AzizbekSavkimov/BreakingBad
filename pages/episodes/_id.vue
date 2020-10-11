@@ -1,6 +1,6 @@
 <template>
   <div class="container info">
-    <tabs :tabs="tabs" @click="active = $event" />
+    <tabs :tabs="tabs" @click="active = $event" :activeElem="active" />
     <div class="info__block" v-if="!loading">
       <NLink class="info__item info__char" v-for="(item, i) in people" :to="`/people/${item.char_id}`" v-if="active === 'char'" :key="item + i" :style="`background-image: url(${item.img});`">
         <div>Имя: {{item.name}}</div>
@@ -8,7 +8,7 @@
         <p>Статус: {{item.status}}</p>
         <div>Дата рождения: {{item.birthday}}</div>
       </NLink>
-      <div class="info__item info__death" v-for="(item, i) in deaths" v-if="active === 'death'" :key="item + i">
+      <div class="info__item info__death" v-for="(item, i) in FilterDeath" v-if="active === 'death'" :key="item + i">
         <div>Имя: {{item.death}}</div>
         <p>Причина: {{item.cause}}</p>
         <div>Ответственность: {{item.responsible}}</div>
@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     FilterDeath() {
-      return this.deaths.filter(item => item.episode === this.episode);
+      return this.deaths.filter(item => item.episode == this.episode);
     }
   }
 }
